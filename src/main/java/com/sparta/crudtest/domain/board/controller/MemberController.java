@@ -16,27 +16,28 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public ResponseEntity<MemberSaveResponseDto> memberSave(@RequestBody MemberSaveRequestDto memberSaveRequestDto){
+    public ResponseEntity<MemberSaveResponseDto> memberSave(@RequestBody MemberSaveRequestDto memberSaveRequestDto) {
         return ResponseEntity.ok(memberService.saveMember(memberSaveRequestDto));
     }
 
     @GetMapping
-    public ResponseEntity<List<MemberSimpleResponseDto>> simpleMember(){
+    public ResponseEntity<List<MemberSimpleResponseDto>> simpleMember() {
         return ResponseEntity.ok(memberService.simpleMember());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MemberDetailResponseDto> detailMember(@PathVariable Long id){
+    public ResponseEntity<MemberDetailResponseDto> detailMember(@PathVariable Long id) {
         return ResponseEntity.ok(memberService.detailMember(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MemberUpdateResponseDto> updateMember(@PathVariable Long id, @RequestBody MemberUpdateRequestDto memberUpdateRequestDto){
+    public ResponseEntity<MemberUpdateResponseDto> updateMember(@PathVariable Long id, @RequestBody MemberUpdateRequestDto memberUpdateRequestDto) {
         return ResponseEntity.ok(memberService.updateMember(id, memberUpdateRequestDto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMember(@PathVariable Long id){
+    public ResponseEntity<Void> deleteMember(@PathVariable Long id) {
         return ResponseEntity.ok(memberService.deleteMember(id));
     }
+
 }
